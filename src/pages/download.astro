@@ -31,7 +31,16 @@ import ErrorPage from "../components/ErrorPage.astro";
     }
   };
 
+  const handleDeviceIdSearchParams = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const deviceId = urlParams.get("deviceId");
+    if (deviceId != null) {
+      (window as any).targetDeviceId = deviceId;
+    }
+  };
+
   hideUnuseScreen();
+  handleDeviceIdSearchParams();
 </script>
 
 <BaseLayout>
@@ -60,7 +69,7 @@ import ErrorPage from "../components/ErrorPage.astro";
       <img class="formxai-ad__image" src="/Images/oursky/formxai-ad.png" />
     </a>
 
-    <button class="download-btn" onclick="generateZIP()"
+    <button class="download-btn" onclick="generateZIP(window.targetDeviceId)"
       >Download my mockups</button
     >
 
