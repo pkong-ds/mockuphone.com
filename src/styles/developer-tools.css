@@ -1,28 +1,6 @@
-@keyframes slideInFromBottom {
-  0% {
-    transform: translateY(10%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@-moz-keyframes slideInFromBottom {
-  0% {
-    transform: translateY(10%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes slideInFromBottom {
-  0% {
-    transform: translateY(10%);
+@keyframes slideIn {
+  0%{
+    transform: translateY(25%);
     opacity: 0;
   }
   100% {
@@ -32,85 +10,85 @@
 }
 
 .developer-tools-page {
-  .title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 4px;
-  }
+    .title {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
 
-  .col-12 {
-    padding: 16px !important;
-  }
+    .col-12 {
+        padding: 16px !important;
+    }
 }
 
 .developer-tools-card {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  background-color: white;
-  padding: 20px;
-  height: 100%;
-  font-family: "Red Hat Display";
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  transition: box-shadow 0.3s ease-in-out;
-
-  img {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  h2 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 16px;
-    color: black;
-  }
-
-  p {
-    font-size: 16px;
-    color: #838c9b;
-    margin-bottom: 16px;
-    text-align: left;
-  }
-
-  .learn-more {
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    background-color: white;
+    padding: 20px;
+    height: 100%;
+    font-family: "Red Hat Display";
     display: flex;
-    flex-direction: row;
-    color: #004be0;
-    margin-top: auto;
-    gap: 8px;
+    flex-direction: column;
+    opacity: 0;
+    transition: box-shadow 0.3s ease-in-out;
 
     img {
-      width: 24px;
-      height: 24px;
-      margin-bottom: 0;
+        width: 100%;
+        margin-bottom: 20px;
     }
+
+    h2 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 16px;
+        color: black;
+    }
+
+    p {
+        font-size: 16px;
+        color: #838C9B;
+        margin-bottom: 16px;
+        text-align: left;
+    }
+
+    .learn-more {
+        display: flex;
+        flex-direction: row;
+        color: #004BE0;
+        margin-top: auto;
+        gap: 8px;
+
+        img {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 0;
+        }
+    }
+    animation: slideIn 0.3s forwards ease-in-out;
+  &.formxai-card {
+    animation-delay: 0.2s;
+  }
+  &.authgear-card {
+    animation-delay: 0.4s;
+  }
+  &.makeappicon-card {
+    animation-delay: 0.6s;
   }
 }
 
 .developer-tools-card:hover {
-  cursor: pointer;
-  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.16);
 }
 
-.developer-tools-card.visible {
-  animation: slideInFromBottom 0.3s forwards;
-  -moz-animation: slideInFromBottom 0.3s forwards;
-  -webkit-animation: slideInFromBottom 0.3s forwards;
-}
-
-.developer-tools-card.authgear-card.visible {
-  animation-delay: 0.2s;
-}
-
-.developer-tools-card.makeappicon-card.visible {
-  animation-delay: 0.4s;
-}
+/* .developer-tools-card.visible {
+    
+} */
 
 @media (max-width: 768px) {
-  .developer-tools-card.visible.authgear-card,
-  .developer-tools-card.visible.makeappicon-card {
-    animation-delay: 0s;
-  }
+    .developer-tools-card.visible.authgear-card,
+    .developer-tools-card.visible.makeappicon-card {
+        animation-delay: 0s;
+    }
 }
