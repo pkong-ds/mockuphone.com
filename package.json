@@ -24,6 +24,7 @@
     "image-size": "1.1.1",
     "jszip": "3.10.1",
     "localforage": "1.10.0",
+    "nanostores": "0.11.3",
     "toastify-js": "1.12.0",
     "ulid": "2.3.0",
     "zod": "3.21.4"
