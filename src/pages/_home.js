@@ -4,11 +4,17 @@ const { createLocalStorageRecentSearchesPlugin } =
 import * as autocompleteJsPkg from "@algolia/autocomplete-js";
 const { autocomplete } = autocompleteJsPkg;
 
+import { $mockupList } from "../store/mockup"
+
 const NUM_DEFAULT_MODEL_ITEMS_TO_DISPLAY = 0;
 const NUM_DEFAULT_BRAND_ITEMS_TO_DISPLAY = 0;
 const MAX_SEARCH_HISTORY_ITEM = 5;
 const ALGOLIA_SEARCH_HISTORY_KEY = "brandModelSearch";
 const LOCAL_STORAGE_KEY = `AUTOCOMPLETE_RECENT_SEARCHES:${ALGOLIA_SEARCH_HISTORY_KEY}`;
+
+// $profile.subscribe(profile => {
+//   console.log(`Hi, ${profile.name}`)
+// })
 
 class RootViewModel {
   searchText = "";
@@ -210,6 +216,15 @@ function ready(fn) {
 function main() {
   const viewModel = new RootViewModel(window.modelItems, window.brandItems);
   initializeAutocomplete(viewModel);
+
+  $mockupList.subscribe(mockupList => {
+    console.log(`Hi, ${mockupList.portrait}`)
+  })
+
+  const myBtn = document.querySelector("#click-me")
+  myBtn.addEventListener("click", () => {
+    $mockupList.setKey("portrait", (new Date()).toISOString())
+  })
 }
 
 ready(main);
